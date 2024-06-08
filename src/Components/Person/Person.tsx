@@ -10,7 +10,7 @@ const Person:React.FC<Person> = ({users}) => {
       <h4>Person</h4>
       <div>
         {users.map((user) =>(
-          <PersonItem key={user.id} user={user}/>
+            <PersonItem key={user.id} user={user}/>
         ))}
       </div>
     </div>

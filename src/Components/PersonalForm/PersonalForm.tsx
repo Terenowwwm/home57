@@ -7,12 +7,11 @@ interface PersonalForm {
 
 const PersonalForm: React.FC<PersonalForm> = ({onSubmit}) => {
   const [check, setCheck] = useState(false);
-  const [selected, setSelected] = useState('User');
   const [peopleMutation, setPeopleMutation] = useState<UserMutation>({
     id: '',
     name: '',
     email: '',
-    roles:'',
+    roles:'user',
     active: false,
   });
 
@@ -25,7 +24,6 @@ const PersonalForm: React.FC<PersonalForm> = ({onSubmit}) => {
   }
   console.log(peopleMutation)
   const checked = (event: React.ChangeEvent<HTMLInputElement>) => {
-
     const isChecked = event.target.checked;
     setCheck(isChecked);
     setPeopleMutation(prev => ({
@@ -37,18 +35,16 @@ const PersonalForm: React.FC<PersonalForm> = ({onSubmit}) => {
     event.preventDefault();
     onSubmit({
       ...peopleMutation,
-
       id: Math.floor(Math.random() * 100).toString(),
-
       active: peopleMutation.active
-
     });
-    // peopleMutation({
-    //   name:'',
-    //   description:'',
-    //   image:'',
-    //   price:''
-    // });
+    setPeopleMutation({
+      id: '',
+      name: '',
+      email: '',
+      roles:'user',
+      active: false,
+    })
   };
 
   return (
@@ -61,7 +57,9 @@ const PersonalForm: React.FC<PersonalForm> = ({onSubmit}) => {
                name="name"
                onChange={onChange}
                required
-               placeholder="Name"/>
+               placeholder="name"
+               value={peopleMutation.name}/>
+
       </div>
       <div className="form-group mt-4">
         <label htmlFor="email" className="me-4"> email </label>
@@ -70,6 +68,7 @@ const PersonalForm: React.FC<PersonalForm> = ({onSubmit}) => {
                name="email"
                onChange={onChange}
                required
+               value={peopleMutation.email}
                placeholder="email"/>
       </div>
       <div className="selectBlock row mb-4">
@@ -81,7 +80,7 @@ const PersonalForm: React.FC<PersonalForm> = ({onSubmit}) => {
         <div className="form-group mt-4 col-6">
           <label htmlFor="roles" className="me-2"> Role </label>
           <select name="roles" id="roles" onChange={onChange} value={peopleMutation.roles}>
-            <option value="user">user</option>
+            <option value="user" defaultChecked>user</option>
             <option value="editor">editor</option>
             <option value="admin">admin</option>
           </select>

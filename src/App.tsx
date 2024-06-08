@@ -23,7 +23,7 @@ function App() {
       </header>
       <main className='container-fluid'>
         <div className="row">
-          <div className="d-flex col-6 mt-4 border border-primary p-4">
+          <div className="d-flex col-6 mt-4 border border-primary p-4 w-style">
             <PersonalForm onSubmit={addPerson}/>
           </div>
           <div className="col-6 mt-4 border border-secondary-subtle p-4">

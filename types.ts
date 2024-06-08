@@ -5,7 +5,6 @@ export interface User {
   active: boolean;
   roles: string;
 }
-
 export interface UserMutation {
   id: string;
   name: string;
