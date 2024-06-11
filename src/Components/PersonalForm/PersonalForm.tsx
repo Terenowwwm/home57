@@ -23,7 +23,6 @@ const PersonalForm: React.FC<PersonalForm> = ({onSubmit}) => {
       }
     ));
   }
-  console.log(peopleMutation)
   const checked = (event: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = event.target.checked;
     setCheck(isChecked);

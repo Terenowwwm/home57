@@ -12,3 +12,7 @@ export interface UserMutation {
   active: boolean;
   roles: string;
 }
+export interface Alert {
+  show: boolean;
+  type:string;
+}
