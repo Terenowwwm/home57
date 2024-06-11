@@ -1,10 +1,10 @@
 
-import './App.css'
+import {useState} from 'react';
 import ToolBar from './Components/ToolBar/ToolBar';
 import PersonalForm from './Components/PersonalForm/PersonalForm';
-import {useState} from 'react';
 import {User} from '../types';
 import Person from './Components/Person/Person';
+import './App.css'
 
 function App() {
   const [users, setUsers] = useState<User[]>([
@@ -13,7 +13,7 @@ function App() {
     {id: '3', name: 'Manjas', email: 'Lalafo@gmail.com', active: true, roles: 'admin'},
     {id: '4', name: 'Drake', email: 'Dron@gmail.com', active: true, roles: 'admin'}
   ]);
-  const addPerson = (user) =>{
+  const addPerson = (user:User) =>{
     setUsers((prev) => [...prev, user]);
   }
   return (
@@ -23,10 +23,10 @@ function App() {
       </header>
       <main className='container-fluid'>
         <div className="row">
-          <div className="d-flex col-6 mt-4 border border-primary p-4 w-style">
+          <div className="d-flex col-4 mt-4 border border-primary p-4 w-style">
             <PersonalForm onSubmit={addPerson}/>
           </div>
-          <div className="col-6 mt-4 border border-secondary-subtle p-4">
+          <div className="col-4 mt-4 border border-secondary-subtle p-4">
             <Person users={users}/>
           </div>
         </div>

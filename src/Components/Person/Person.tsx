@@ -1,10 +1,10 @@
 import React from 'react';
 import PersonItem from './PersonItem';
 import {User} from '../../../types';
-interface Person{
+interface Props{
   users: User[]
 }
-const Person:React.FC<Person> = ({users}) => {
+const Person:React.FC<Props> = ({users}) => {
   return (
     <div>
       <h4>Person</h4>
